@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center px-4 pt-16 sm:px-6"
+      className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:pt-16 sm:px-6"
     >
       {/* Subtle dot-grid background */}
       <div

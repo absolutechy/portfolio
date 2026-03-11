@@ -60,7 +60,7 @@ export default function ContactPage() {
               </div>
 
               {/* Component tree illustration */}
-              <div className="mt-10 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm">
+              <div className="mb-10 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm">
                 <ComponentTreeIllustration />
                 <p className="mt-4 text-center text-xs text-gray-400">
                   A glimpse at how I think about component architecture.

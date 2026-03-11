@@ -36,7 +36,7 @@ export function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className="text-sm font-bold tracking-tight text-gray-900 hover:text-indigo-600 transition-colors"
+          className="text-2xl font-bold tracking-tight text-gray-900 hover:text-indigo-600 transition-colors"
         >
           {initials}
           <span className="text-indigo-600">.</span>
@@ -79,7 +79,7 @@ export function Navbar() {
           aria-label="Toggle navigation menu"
           aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          {mobileOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
       </nav>
 
