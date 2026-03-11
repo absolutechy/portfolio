@@ -18,7 +18,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt'],
       manifest: {
-        name: 'Alex Morgan — Frontend Engineer',
+        name: 'Sheraz Ahmed — Frontend Engineer',
         short_name: 'Portfolio',
         description: 'Frontend Engineer portfolio built with React & TypeScript',
         theme_color: '#4F46E5',

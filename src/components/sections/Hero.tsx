@@ -1,8 +1,53 @@
+import { useEffect, useState } from 'react'
 import { ArrowDown, Github, Linkedin, Twitter } from 'lucide-react'
 import { personal } from '../../data/portfolio'
 import { FadeIn } from '../ui/FadeIn'
 
+const PHRASES = ['Sheraz Ahmed', 'a Frontend Developer', 'an Engineering Student']
+const TYPE_SPEED = 80
+const DELETE_SPEED = 45
+const PAUSE_AFTER_TYPE = 2000
+const PAUSE_AFTER_DELETE = 400
+
 export function Hero() {
+  const [displayed, setDisplayed] = useState('')
+  const [phraseIdx, setPhraseIdx] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
+
+  useEffect(() => {
+    const current = PHRASES[phraseIdx]
+
+    if (isPaused) {
+      const t = setTimeout(() => {
+        setIsPaused(false)
+        setIsDeleting(displayed.length > 0)
+      }, displayed.length === current.length ? PAUSE_AFTER_TYPE : PAUSE_AFTER_DELETE)
+      return () => clearTimeout(t)
+    }
+
+    if (!isDeleting && displayed.length < current.length) {
+      const t = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), TYPE_SPEED)
+      return () => clearTimeout(t)
+    }
+
+    if (!isDeleting && displayed.length === current.length) {
+      setIsPaused(true)
+      return
+    }
+
+    if (isDeleting && displayed.length > 0) {
+      const t = setTimeout(() => setDisplayed(current.slice(0, displayed.length - 1)), DELETE_SPEED)
+      return () => clearTimeout(t)
+    }
+
+    if (isDeleting && displayed.length === 0) {
+      setIsDeleting(false)
+      setIsPaused(true)
+      setPhraseIdx((i) => (i + 1) % PHRASES.length)
+    }
+  }, [displayed, phraseIdx, isDeleting, isPaused])
+
   return (
     <section
       id="hero"
@@ -35,11 +80,10 @@ export function Hero() {
         <FadeIn delay={100}>
           <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-7xl">
             Hi, I'm{' '}
-            <span className="text-indigo-600">{personal.name.split(' ')[0]}</span>
-            {personal.name.split(' ').length > 1 && (
-              <> {personal.name.split(' ').slice(1).join(' ')}</>
-            )}
-            <span className="text-indigo-600">.</span>
+            <span className="text-indigo-600">
+              {displayed}
+              <span className="typewriter-cursor">|</span>
+            </span>
           </h1>
         </FadeIn>
 
@@ -112,6 +156,18 @@ export function Hero() {
       </div>
 
       {/* Scroll cue */}
+      <style>{`
+        .typewriter-cursor {
+          display: inline-block;
+          margin-left: 2px;
+          animation: cursorBlink 0.9s step-end infinite;
+        }
+        @keyframes cursorBlink {
+          0%, 100% { opacity: 1; }
+          50%       { opacity: 0; }
+        }
+      `}</style>
+
       <FadeIn delay={700} className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <a
           href="#about"

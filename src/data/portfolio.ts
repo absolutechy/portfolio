@@ -2,7 +2,7 @@ import type { Project, ProcessStep, SkillGroup, Stat, Testimonial } from '../typ
 
 // ─── Personal Info ────────────────────────────────────────────────────────────
 export const personal = {
-  name: 'Alex Morgan',
+  name: 'Sheraz Ahmed',
   role: 'Frontend Engineer',
   tagline: 'Building fast, accessible, and beautiful web experiences',
   bio: `I'm a frontend engineer with 5+ years of experience crafting high-performance
