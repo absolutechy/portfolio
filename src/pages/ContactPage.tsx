@@ -11,7 +11,7 @@ export default function ContactPage() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
 
           {/* ── Left: copy + social links + illustration ──────────────── */}
-          <FadeIn direction="left">
+          <FadeIn direction="left"> 
             <div>
               <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">
                 Contact
