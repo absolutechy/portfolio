@@ -31,3 +31,8 @@
     display: none;
   }
 }
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 600; }
+  to   { stroke-dashoffset: 0; }
+}

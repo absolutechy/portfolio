@@ -1,4 +1,4 @@
-import type { Project, SkillGroup, Stat, Testimonial } from '../types'
+import type { Project, ProcessStep, SkillGroup, Stat, Testimonial } from '../types'
 
 // ─── Personal Info ────────────────────────────────────────────────────────────
 export const personal = {
@@ -58,6 +58,8 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com',
     liveUrl: 'https://example.com',
     accent: '#4F46E5',
+    featured: true,
+    category: 'App',
   },
   {
     id: 'taskflow',
@@ -68,6 +70,8 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com',
     liveUrl: 'https://example.com',
     accent: '#0891B2',
+    featured: true,
+    category: 'App',
   },
   {
     id: 'radiant-ui',
@@ -78,6 +82,76 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com',
     liveUrl: 'https://example.com',
     accent: '#059669',
+    featured: true,
+    category: 'Library',
+  },
+  {
+    id: 'perfwatch',
+    title: 'PerfWatch CLI',
+    description:
+      'A developer CLI tool that audits web performance budgets, bundles Lighthouse reports into CI/CD pipelines, and surfaces regressions before they reach production.',
+    tech: ['Node.js', 'TypeScript', 'Lighthouse', 'GitHub Actions'],
+    githubUrl: 'https://github.com',
+    accent: '#D97706',
+    featured: false,
+    category: 'Tool',
+  },
+  {
+    id: 'formkit',
+    title: 'FormKit',
+    description:
+      'A headless React form library with first-class TypeScript support, built on top of react-hook-form. Provides schema-driven field generation and validation.',
+    tech: ['React', 'TypeScript', 'Zod', 'Vitest', 'Rollup'],
+    githubUrl: 'https://github.com',
+    liveUrl: 'https://example.com',
+    accent: '#7C3AED',
+    featured: false,
+    category: 'Library',
+  },
+  {
+    id: 'minimal-theme',
+    title: 'Minimal Dark Theme',
+    description:
+      'A carefully crafted VS Code colour theme optimised for long coding sessions. 120k+ installs, WCAG AA contrast ratios across all token categories.',
+    tech: ['VS Code API', 'JSON', 'WCAG', 'Design Tokens'],
+    liveUrl: 'https://example.com',
+    accent: '#DB2777',
+    featured: false,
+    category: 'UI',
+  },
+]
+
+// ─── Process Steps ────────────────────────────────────────────────────────────
+export const processSteps: ProcessStep[] = [
+  {
+    step: '01',
+    title: 'Discover',
+    description:
+      'Deep-dive into requirements, user research, and technical constraints with all stakeholders before writing a line of code.',
+  },
+  {
+    step: '02',
+    title: 'Design',
+    description:
+      'Wireframe and prototype in Figma, validating UX flows and component APIs until the design is solid and agreed.',
+  },
+  {
+    step: '03',
+    title: 'Build',
+    description:
+      'Component-driven development in React + TypeScript with accessibility, unit tests, and performance budgets from day one.',
+  },
+  {
+    step: '04',
+    title: 'Ship',
+    description:
+      'CI/CD pipeline review, Lighthouse audit, bundle optimisation, then a confident, observable production deploy.',
+  },
+  {
+    step: '05',
+    title: 'Iterate',
+    description:
+      'Monitor real-world metrics, gather feedback, and continuously improve based on what users actually do — not assumptions.',
   },
 ]
 

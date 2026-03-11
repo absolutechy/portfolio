@@ -1,3 +1,5 @@
+export type ProjectCategory = 'App' | 'Library' | 'Tool' | 'UI'
+
 export interface Project {
   id: string
   title: string
@@ -6,6 +8,8 @@ export interface Project {
   githubUrl?: string
   liveUrl?: string
   accent: string
+  featured: boolean
+  category: ProjectCategory
 }
 
 export interface SkillGroup {
@@ -26,4 +30,10 @@ export interface Testimonial {
 export interface Stat {
   label: string
   value: string
+}
+
+export interface ProcessStep {
+  step: string
+  title: string
+  description: string
 }

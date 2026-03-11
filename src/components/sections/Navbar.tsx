@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
+import { Link, NavLink } from 'react-router'
 import { Menu, X } from 'lucide-react'
 import { cn } from '../../lib/utils'
 import { personal } from '../../data/portfolio'
 
 const NAV_LINKS = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Home', to: '/' },
+  { label: 'Portfolio', to: '/portfolio' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 export function Navbar() {
@@ -34,36 +34,42 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
-        <a
-          href="#hero"
+        <Link
+          to="/"
           className="text-sm font-bold tracking-tight text-gray-900 hover:text-indigo-600 transition-colors"
         >
           {initials}
           <span className="text-indigo-600">.</span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm font-medium text-gray-600 transition-colors hover:text-indigo-600"
+            <li key={link.to}>
+              <NavLink
+                to={link.to}
+                end={link.to === '/'}
+                className={({ isActive }) =>
+                  cn(
+                    'text-sm font-medium transition-colors hover:text-indigo-600',
+                    isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600',
+                  )
+                }
               >
                 {link.label}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>
 
         {/* Desktop CTA */}
         <div className="hidden md:flex">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 focus-visible:ring-2 focus-visible:ring-indigo-600"
           >
             Hire Me
-          </a>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -82,24 +88,30 @@ export function Navbar() {
         <div className="border-t border-gray-100 bg-white px-4 pb-6 pt-4 md:hidden">
           <ul className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  end={link.to === '/'}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-sm font-medium text-gray-600 transition-colors hover:text-indigo-600"
+                  className={({ isActive }) =>
+                    cn(
+                      'block text-sm font-medium transition-colors hover:text-indigo-600',
+                      isActive ? 'text-indigo-600 font-semibold' : 'text-gray-600',
+                    )
+                  }
                 >
                   {link.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             onClick={() => setMobileOpen(false)}
             className="mt-4 block rounded-lg bg-indigo-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-indigo-700"
           >
             Hire Me
-          </a>
+          </Link>
         </div>
       )}
     </header>
