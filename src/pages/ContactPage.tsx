@@ -8,10 +8,10 @@ export default function ContactPage() {
   return (
     <section className="min-h-screen pt-24 pb-16 md:pt-28 md:pb-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
 
           {/* ── Left: copy + social links + illustration ──────────────── */}
           <FadeIn direction="left"> 
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
             <div>
               <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-indigo-600">
                 Contact
@@ -57,6 +57,7 @@ export default function ContactPage() {
                   <Twitter size={16} /> Twitter
                 </a>
               </div>
+              </div>
 
               {/* Component tree illustration */}
               <div className="mt-10 rounded-2xl border border-gray-200 bg-white p-2 shadow-sm">
@@ -77,7 +78,6 @@ export default function ContactPage() {
           </FadeIn>
 
         </div>
-      </div>
     </section>
   )
 }
